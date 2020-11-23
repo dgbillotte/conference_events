@@ -20,12 +20,16 @@ defmodule ConferenceEventsWeb.Router do
 
     get "/fb", PageController, :foobar
 
+    get "/ed", PageController, :event_details
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ConferenceEventsWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ConferenceEventsWeb do
+    pipe_through :api
+
+    resources "/events", EventController,
+      only: [:index, :show, :create, :update]
+  end
 
   # Enables LiveDashboard only for development
   #

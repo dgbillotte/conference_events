@@ -25,4 +25,21 @@ defmodule ConferenceEventsWeb.PageController do
   	# 	cost: 15
   	# }
   end
+
+  def event_details(conn, _params) do
+
+
+  	
+  	e = %ConferenceEvents.Event{
+  		date: ~D[2021-02-11],
+  		location: "some place",
+  		cost: 15
+  	}
+  	# e = %ConferenceEvents.Event{ date: ~D[2021-02-11] }
+  	# e = %{id: 123, location: "farmtown"}
+  	# json(conn, e)
+  	# json(conn, Jason.encode!(%{name: "thenameis"}))
+  	# json(conn, Jason.encode!(%ConferenceEvents.Event{ date: ~D[2021-02-11] }))
+  	json(conn, Jason.encode!(e))
+  end
 end
